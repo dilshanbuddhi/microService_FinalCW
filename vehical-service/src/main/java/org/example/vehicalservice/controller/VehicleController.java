@@ -27,22 +27,13 @@ public class VehicleController {
         Optional<Vehicle> vehicle = vehicleService.getVehicleById(id);
         return vehicle.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
-    
-    @GetMapping("/license/{licenseNumber}")
-    public ResponseEntity<Vehicle> getVehicleByLicenseNumber(@PathVariable String licenseNumber) {
-        Optional<Vehicle> vehicle = vehicleService.getVehicleByLicenseNumber(licenseNumber);
-        return vehicle.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
-    }
+
     
     @GetMapping("/user/{userId}")
     public List<Vehicle> getVehiclesByUserId(@PathVariable String userId) {
         return vehicleService.getVehiclesByUserId(userId);
     }
-    
-    @GetMapping("/type/{type}")
-    public List<Vehicle> getVehiclesByType(@PathVariable Vehicle.VehicleType type) {
-        return vehicleService.getVehiclesByType(type);
-    }
+
     
     @GetMapping("/parked")
     public List<Vehicle> getParkedVehicles() {

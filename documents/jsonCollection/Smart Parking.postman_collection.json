@@ -1,0 +1,1285 @@
+{
+	"info": {
+		"_postman_id": "174f017e-89dc-46ff-af0d-d57afa4e0f34",
+		"name": "Smart Parking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39903655"
+	},
+	"item": [
+		{
+			"name": "user-service",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Register User - Admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\",\n  \"role\": \"ADMIN\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register User - Regular User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Jane Smith\",\n  \"email\": \"jane@example.com\",\n  \"password\": \"password456\",\n  \"role\": \"USER\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/users/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by Email",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/users/email/john@example.com",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"email",
+								"john@example.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Users by Role",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/users/role/ADMIN",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"role",
+								"ADMIN"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Users by Name",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/users/search?name=John",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "John"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Email Exists",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/users/exists/john@example.com",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"exists",
+								"john@example.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Updated Name\",\n  \"email\": \"updated@example.com\",\n  \"password\": \"newpassword123\",\n  \"role\": \"USER\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/users/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "vehical-service",
+			"item": [
+				{
+					"name": "Get All Vehicles",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/vehicles",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"vehicles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Vehicle by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/vehicles/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"vehicles",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Vehicles by User ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/vehicles/user/USER001",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"vehicles",
+								"user",
+								"USER001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Parked Vehicles",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/vehicles/parked",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"vehicles",
+								"parked"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Unparked Vehicles",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/vehicles/unparked",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"vehicles",
+								"unparked"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register Vehicle - Car",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"licensePlate\": \"ABC-1234\",\n  \"make\": \"Toyota\",\n  \"model\": \"Camry\",\n  \"color\": \"Blue\",\n  \"vehicleType\": \"CAR\",\n  \"userId\": \"USER001\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/vehicles",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"vehicles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register Vehicle - Motorcycle",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"licensePlate\": \"XYZ-5678\",\n  \"make\": \"Honda\",\n  \"model\": \"CBR600\",\n  \"color\": \"Red\",\n  \"vehicleType\": \"MOTORCYCLE\",\n  \"userId\": \"USER002\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/vehicles",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"vehicles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Vehicle",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"licensePlate\": \"ABC-1234\",\n  \"make\": \"Toyota\",\n  \"model\": \"Camry Hybrid\",\n  \"color\": \"Silver\",\n  \"vehicleType\": \"CAR\",\n  \"userId\": \"USER001\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/vehicles/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"vehicles",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Simulate Entry",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/vehicles/1/entry?parkingSpaceId=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"vehicles",
+								"1",
+								"entry"
+							],
+							"query": [
+								{
+									"key": "parkingSpaceId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Simulate Exit",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/vehicles/1/exit",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"vehicles",
+								"1",
+								"exit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Vehicle",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/vehicles/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"vehicles",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "parking-service",
+			"item": [
+				{
+					"name": "Get All Parking Spaces",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/parking",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"parking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Parking Space by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/parking/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"parking",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Available Parking Spaces",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/parking/available",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"parking",
+								"available"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Parking Spaces by City",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/parking/city/Colombo",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"parking",
+								"city",
+								"Colombo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Available Spaces by City",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/parking/city/Colombo/available",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"parking",
+								"city",
+								"Colombo",
+								"available"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Parking Spaces by Owner",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/parking/owner/owner123",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"parking",
+								"owner",
+								"owner123"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Parking Space - Premium",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"spaceNumber\": \"P001\",\n  \"location\": \"Main Street, Colombo 01\",\n  \"city\": \"Colombo\",\n  \"zone\": \"Zone A\",\n  \"ownerId\": \"owner123\",\n  \"hourlyRate\": 150.0\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/parking",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"parking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Parking Space - Standard",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"spaceNumber\": \"P002\",\n  \"location\": \"Galle Road, Dehiwala\",\n  \"city\": \"Dehiwala\",\n  \"zone\": \"Zone B\",\n  \"ownerId\": \"owner456\",\n  \"hourlyRate\": 80.0\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/parking",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"parking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Parking Space",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"spaceNumber\": \"P001\",\n  \"location\": \"Updated Main Street, Colombo 01\",\n  \"city\": \"Colombo\",\n  \"zone\": \"Zone A\",\n  \"ownerId\": \"owner123\",\n  \"hourlyRate\": 175.0\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/parking/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"parking",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reserve Parking Space",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/parking/1/reserve?vehicleId=VH001",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"parking",
+								"1",
+								"reserve"
+							],
+							"query": [
+								{
+									"key": "vehicleId",
+									"value": "VH001"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Occupy Parking Space",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/parking/1/occupy",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"parking",
+								"1",
+								"occupy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Release Parking Space",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/parking/1/release",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"parking",
+								"1",
+								"release"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Parking Space",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/parking/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"parking",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "payment-service",
+			"item": [
+				{
+					"name": "Payment Operations",
+					"item": [
+						{
+							"name": "Get All Payments",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/payments",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"payments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Payment by ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/payments/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"payments",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Payment by Transaction ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/payments/transaction/TXN123456789",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"payments",
+										"transaction",
+										"TXN123456789"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Payments by User ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/payments/user/USER001",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"payments",
+										"user",
+										"USER001"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Payments by Status",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/payments/status/PENDING",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"payments",
+										"status",
+										"PENDING"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Process Payment",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"userId\": \"USER001\",\n  \"vehicleId\": \"VH001\",\n  \"parkingSpaceId\": 1,\n  \"amount\": 25.50,\n  \"paymentMethod\": \"CREDIT_CARD\",\n  \"cardNumber\": \"1234\",\n  \"cardHolderName\": \"John Doe\",\n  \"parkingDurationHours\": 3,\n  \"hourlyRate\": 8.50\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/payments/process",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"payments",
+										"process"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Process Payment - Debit Card",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"userId\": \"USER002\",\n  \"vehicleId\": \"VH002\",\n  \"parkingSpaceId\": 5,\n  \"amount\": 42.00,\n  \"paymentMethod\": \"DEBIT_CARD\",\n  \"cardNumber\": \"5678\",\n  \"cardHolderName\": \"Jane Smith\",\n  \"parkingDurationHours\": 6,\n  \"hourlyRate\": 7.00\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/payments/process",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"payments",
+										"process"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Process Payment - Cash",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"userId\": \"USER003\",\n  \"vehicleId\": \"VH003\",\n  \"parkingSpaceId\": 10,\n  \"amount\": 15.00,\n  \"paymentMethod\": \"CASH\",\n  \"parkingDurationHours\": 2,\n  \"hourlyRate\": 7.50\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/payments/process",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"payments",
+										"process"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Refund Payment",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/payments/1/refund",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"payments",
+										"1",
+										"refund"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Payment",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/payments/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"payments",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Receipt Operations",
+					"item": [
+						{
+							"name": "Get Receipt by Number",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/payments/receipts/number/REC001",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"payments",
+										"receipts",
+										"number",
+										"REC001"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Receipt by Transaction ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/payments/receipts/transaction/TXN123456789",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"payments",
+										"receipts",
+										"transaction",
+										"TXN123456789"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Receipts by User ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/payments/receipts/user/USER001",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"payments",
+										"receipts",
+										"user",
+										"USER001"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

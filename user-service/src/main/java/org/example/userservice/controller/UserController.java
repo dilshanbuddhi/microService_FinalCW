@@ -85,32 +85,11 @@ public class UserController {
         return ResponseEntity.noContent().build();
     }
     
-    @PatchMapping("/{id}/deactivate")
-    public ResponseEntity<Void> deactivateUser(@PathVariable Long id) {
-        logger.info("Deactivating user with ID: {}", id);
-        userService.deactivateUser(id);
-        return ResponseEntity.ok().build();
-    }
-    
-    @PatchMapping("/{id}/activate")
-    public ResponseEntity<Void> activateUser(@PathVariable Long id) {
-        logger.info("Activating user with ID: {}", id);
-        userService.activateUser(id);
-        return ResponseEntity.ok().build();
-    }
-    
     @GetMapping("/search")
     public ResponseEntity<List<UserResponseDto>> searchUsersByName(@RequestParam String name) {
         logger.debug("Searching users by name: {}", name);
         List<UserResponseDto> users = userService.searchUsersByName(name);
         return ResponseEntity.ok(users);
-    }
-    
-    @GetMapping("/count/{role}")
-    public ResponseEntity<Long> getUserCountByRole(@PathVariable UserRole role) {
-        logger.debug("Getting user count by role: {}", role);
-        Long count = userService.getUserCountByRole(role);
-        return ResponseEntity.ok(count);
     }
     
     @GetMapping("/exists/{email}")
@@ -120,8 +99,4 @@ public class UserController {
         return ResponseEntity.ok(exists);
     }
     
-    @GetMapping("/health")
-    public ResponseEntity<String> healthCheck() {
-        return ResponseEntity.ok("User Service is running!");
-    }
-}
+   }
